@@ -5,24 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="app.js"></script>
+  <link rel="stylesheet" href = "src/index.css"/>
   <title>SheCodes</title>
 </head>
 <body>
+  <div class="weather-app">
   <header>
-    <input type="search" placeholder="Enter a city.." required />
-    <input type="submit" value="Search" />
+    <form class = "search-form">
+    <input 
+    type="search" 
+    placeholder="Enter a city.." 
+    required 
+    class="search-form-input"
+    />
+    <input type="submit" value="Search" class="search-form-button"/>
+    </form>
   </header>
 
   <main>
+    <div class = "weather-app-data">
     <div>
-    <h1> Paris </h1>
-    <p>
+    <h1 class="weather-app-city">Paris</h1>
+    <p class="weather-app-details">
       Tuesday 14:49, scattered clouds
       <br/>
-      Humidity: 66%, Wind: 3.13km/h1
+      Humidity: <strong>66%</strong> , Wind: <strong> 3.13km/h</strong> 
     </p>
     </div>
-    <div> 🌥 12 </div>
+    <div class="weather-app-temperature-container">
+      <div class="weather-app-icon">🌤️</div>
+      <div class="weather-app-temperature">12</div>
+      <div class="weatehr-app-unit">°C</div>
+    </div>
+  </div>
   </main>
   
 </body>
@@ -32,6 +47,7 @@
   <a href="https://github.com/lnjamison02/Vanilla-App.git" target="_blank">GitHub</a>
   and website hosted
   <a href="https://vanillaappproject.netlify.app" target="_blank"
-    >on Netlify</a
+    >on Netlify</a>
 </footer>
+</div>
 </html>

@@ -87,6 +87,18 @@ function handleSearchSubmit(event) {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios(apiUrl).then(displayForcast);
   }
+
+  function displayForecast(response){
+    let forecastHtml = "";
+
+    response.data.daily.forEach(function (day,index){
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
+      <div class = "
+    }
+  }
   
   let searchFormElement = document.querySelector(".search-form");
   searchFormElement.addEventListener("submit", handleSearchSubmit);

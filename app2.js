@@ -4,15 +4,6 @@ function handleSearchSubmit(event) {
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = searchInput.value;
   }
-
-  // function refreshWeather(response) {
-  //   let temperatureElement = document.querySelector("#temperature");
-  //   let temperature = response.data.temperature.current;
-  //   let cityElement = document.querySelector("#city");
-  
-  //   cityElement.innerHTML = response.data.city;
-  //   temperatureElement.innerHTML = Math.round(temperature);
-  // }
   
   function searchCity(city) {
     let apiKey = "b2a5adcct04b33178913oc335f405433";
@@ -30,7 +21,7 @@ function handleSearchSubmit(event) {
     let temperatureElement = document.querySelector(".weather-app-temperature");
     let temperature = response.data.temperature.current;
     let cityElement = document.querySelector("#city");
-    // let descriptionElement = document.querySelector("#description");
+    let descriptionElement = document.querySelector("#description");
     let humidityElement = document.querySelector("#humidity");
     let windSpeedElement = document.querySelector("#wind-speed");
     let timeElement = document.querySelector("#time");
@@ -45,6 +36,8 @@ function handleSearchSubmit(event) {
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+
+    getForecast(response.data.city);
     
   }
   
@@ -80,6 +73,19 @@ function handleSearchSubmit(event) {
     let searchInput = document.querySelector("#search-form-input");
   
     searchCity(searchInput.value);
+  }
+
+  function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    return days[date.getDay()];
+  }
+
+  function getForecast(city){
+    let apiKey = "b2a5adcct04b33178913oc335f405433";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    axios(apiUrl).then(displayForcast);
   }
   
   let searchFormElement = document.querySelector(".search-form");

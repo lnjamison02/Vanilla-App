@@ -88,16 +88,33 @@ function handleSearchSubmit(event) {
     axios(apiUrl).then(displayForcast);
   }
 
-  function displayForecast(response){
+  function displayForecast(response) {
     let forecastHtml = "";
 
     response.data.daily.forEach(function (day,index){
-    if (index < 5) {
-      forecastHtml =
-        forecastHtml +
-        `
-      <div class = "
+      if (index < 5) {
+        forecastHtml =
+          forecastHtml +
+          `
+        <div class = "forcastday">
+          <div class = "forecastdate">${formatDay(day.time)}</div>
+
+          <img src="${day.condition.icon_url}" class="forecasticon"/>
+          <div class="forecasttemp">
+            <div class="forecasttemp">
+              <strong>${Math.round(day.temperature.maximum)}º</strong>
+          </div>
+          <div class="forecasttemp">${Math.round(
+            day.temperature.minimum
+          )}º</div>
+        </div>
+      </div>
+    `;
     }
+  });
+
+  let forecastElement = document.querySelector("#wklyforecast");
+  forecastElement.innerHTML = forecastHtml;
   }
   
   let searchFormElement = document.querySelector(".search-form");

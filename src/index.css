@@ -84,19 +84,19 @@ body{
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
   }
-  .weather-forcast-date {
+  .forcastdate {
     text-align: center;
     color: rgba(39, 33, 66, 0.4);
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 10px;
   }
-  .weather-forecast {
+  .forecastday {
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
   }
-  .weather-forecast-temperature {
+  .forecasttemperature {
     text-align: center;
     color: #f65282;
     margin-top: 10px;

@@ -26,7 +26,7 @@ function handleSearchSubmit(event) {
     let windSpeedElement = document.querySelector("#wind-speed");
     let timeElement = document.querySelector("#time");
     let date = new Date(response.data.time * 1000);
-    let iconElement = document.querySelector("#icon");
+    let iconElement = document.querySelector("#emojiicon");
   
     cityElement.innerHTML = response.data.city;
     timeElement.innerHTML = formatDate(date);
@@ -34,7 +34,6 @@ function handleSearchSubmit(event) {
     descriptionElement.innerHTML = response.data.condition.description;
     humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
-  
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 
     getForecast(response.data.city);
@@ -85,18 +84,18 @@ function handleSearchSubmit(event) {
   function getForecast(city){
     let apiKey = "b2a5adcct04b33178913oc335f405433";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-    axios(apiUrl).then(displayForcast);
+    axios(apiUrl).then(displayForecast);
   }
 
   function displayForecast(response) {
     let forecastHtml = "";
 
-    response.data.daily.forEach(function (day,index){
+    response.data.daily.forEach(function (day, index) {
       if (index < 5) {
         forecastHtml =
           forecastHtml +
           `
-        <div class = "forcastday">
+        <div class = "forecastday">
           <div class = "forecastdate">${formatDay(day.time)}</div>
 
           <img src="${day.condition.icon_url}" class="forecasticon"/>

@@ -14,6 +14,16 @@ header {
   border-bottom: 1px solid #f9f7fe;
   padding: 0 0 30px 0;
   }
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 100;
+  display: block;
+  margin: 30px auto;
+  width: 150px;
+  }
+  
 .search-form-input {
   background-color: #f9f7fe;
   border: none;
@@ -24,7 +34,7 @@ header {
   }
   
 .search-form-button {
-  background: #f64f74;
+  background: #e96969;
   padding: 15px 30px;
   border: none;
   font-size: 16px;
@@ -93,7 +103,7 @@ main {
   }
   .forecastday {
     text-align: center;
-    color: rgba(39, 33, 66, 0.4);
+    color: rgba(66, 51, 33, 0.4);
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 10px;
